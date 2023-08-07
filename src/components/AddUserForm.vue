@@ -1,22 +1,38 @@
 <template>
 	<form>
 		<legend>{{ formTitle }}</legend>
-		<input type="text" v-model="name" :placeholder="nameInputPlaceholder" />
-		<input type="text" v-model="lastname" :placeholder="lastnameInputPlaceholder" />
-		<button type="submit" @click.prevent="addUser">{{ buttonTitle }}</button>
+		<input
+			class="border rounded p-2"
+			type="text"
+			v-model="name"
+			:placeholder="nameInputPlaceholder"
+		/>
+		<input
+			class="border rounded p-2"
+			type="text"
+			v-model="lastname"
+			:placeholder="lastnameInputPlaceholder"
+		/>
+		<button
+			class="border rounded p-2 bg-amber-200"
+			type="submit"
+			@click.prevent="addUser"
+		>
+			{{ buttonTitle }}
+		</button>
 	</form>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import User from '@/models/user.model';
-import { mapActions } from 'vuex';
+import { defineComponent } from "vue";
+import User from "@/models/user.model";
+import { mapActions } from "vuex";
 
 export default defineComponent({
 	data() {
 		return {
-			name: '',
-			lastname: '',
+			name: "",
+			lastname: "",
 		};
 	},
 	props: {
@@ -38,7 +54,7 @@ export default defineComponent({
 		},
 	},
 	methods: {
-		...mapActions(['saveUser']),
+		...mapActions(["saveUser"]),
 		addUser(): void {
 			const userInfo = new User(this.name, this.lastname);
 
