@@ -17,4 +17,10 @@ export default class ApiService {
 
 		return axios.get<UserInfo[]>(url);
 	}
+
+	public async removeUser(userId: string): Promise<AxiosResponse<UserInfo>> {
+		const url = `${this._baseUsersURL}/${userId}`;
+
+		return axios.delete(url);
+	}
 }

@@ -9,8 +9,8 @@
         <td>{{ user.name }}</td>
         <td>{{ user.lastname }}</td>
         <td>
-          <button type="button">{{ editButtonTitle }}</button>
-          <button type="button">{{ removeButtonTitle }}</button>
+          <button type="button" @click="editUser(user.id)">{{ editButtonTitle }}</button>
+          <button type="button" @click="removeUserFromTable(user.id)">{{ removeButtonTitle }}</button>
         </td>
     </tr>
   </table>
@@ -46,7 +46,13 @@ export default defineComponent({
     this.getUsers();
   },
   methods: {
-    ...mapActions(['getUsers']),
+    ...mapActions(['getUsers', 'removeUser']),
+    removeUserFromTable(userId: string): void {
+      this.removeUser(userId);
+    },
+    editUser(userId: string): void {
+
+    },
   },
 });
 </script>

@@ -28,4 +28,14 @@ export default class UsersService {
 			throw new Error(error.message);
 		}
 	}
+
+	public async removeUser(userId: string): Promise<UserInfo> {
+		try {
+			const user = await this._apiService.removeUser(userId);
+
+			return user.data;
+		} catch(error: any) {
+			throw new Error(error.message);
+		}
+	}
 }

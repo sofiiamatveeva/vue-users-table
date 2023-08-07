@@ -19,6 +19,9 @@ export default createStore<Store>({
     updateUsersCollection(state, users: UserInfo[]): void {
       state.users = users;
     },
+    removeUserFromCollection(state, userId: string): void {
+      state.users = state.users.filter(user => user.id !== userId);
+    }
   },
   actions: {
     saveUser(state, userInfo: UserInfo): void {
@@ -41,6 +44,17 @@ export default createStore<Store>({
         console.error(error);
       });
     },
+    removeUser(state, userId: string): void {
+      usersService.removeUser(userId).then(
+        (userInfo: UserInfo) => {
+          console.log(1212, userInfo)
+          state.commit('removeUserFromCollection', userId);
+        }
+      )
+      .catch((error) => {
+        console.error(error);
+      });
+    }
   },
   modules: {
   }
