@@ -1,18 +1,20 @@
 <template>
+  <div class="border rounded p-5 mb-10">
 	<table>
-		<thead>
-			<th>{{ nameCol }}</th>
-			<th>{{ lastnameCol }}</th>
+		<thead class="border-b">
+			<th class="text-start pb-3">{{ nameCol }}</th>
+			<th class="text-start pb-3">{{ lastnameCol }}</th>
+      <th></th>
 		</thead>
-		<tr v-for="user in users" :key="user.id">
+		<tr class="border-b" v-for="user in users" :key="user.id">
 			<template v-if="activeId === user.id">
 				<td width=300 class="border-r px-2">
-					<input class="border rounded px-1" type="text" v-model="nameToEdit" />
+					<input class="outline-none border rounded px-1" type="text" v-model="nameToEdit" />
 				</td>
 				<td width=300 class="px-2">
-          <input class="border rounded px-1" type="text" v-model="lastnameToEdit" />
+          <input class="outline-none border rounded px-1" type="text" v-model="lastnameToEdit" />
         </td>
-				<td width=300>
+				<td>
 					<button
 						class="rounded p-2 mr-1 bg-green-100"
 						type="button"
@@ -32,7 +34,7 @@
 			<template v-else>
 				<td width=300 class="border-r px-2">{{ user.name }}</td>
 				<td width=300 class="px-2">{{ user.lastname }}</td>
-				<td width=300>
+				<td>
 					<button
 						class="rounded p-2 mr-1 bg-blue-100"
 						type="button"
@@ -51,6 +53,7 @@
 			</template>
 		</tr>
 	</table>
+</div>
 </template>
 
 <script lang="ts">

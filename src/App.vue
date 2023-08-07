@@ -1,4 +1,5 @@
 <template>
+  <div class="w-max mx-auto py-40">
   <AddUserForm
     :formTitle="addUserFormTitle"
     :nameInputPlaceholder="userNamePlaceholder"
@@ -13,6 +14,7 @@
     :saveButtonTitle="saveButtonTitle"
     :cancelButtonTitle="cancelButtonTitle"
   />
+  </div>
 </template>
 
 <script lang="ts">

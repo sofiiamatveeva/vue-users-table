@@ -1,14 +1,14 @@
 <template>
-	<form>
-		<legend>{{ formTitle }}</legend>
+	<form class="border rounded p-5 mb-10">
+		<legend class="text-lg mb-5">{{ formTitle }}</legend>
 		<input
-			class="border rounded p-2"
+			class="outline-none mr-4 border rounded p-2"
 			type="text"
 			v-model="name"
 			:placeholder="nameInputPlaceholder"
 		/>
 		<input
-			class="border rounded p-2"
+			class="outline-none mr-4 border rounded p-2"
 			type="text"
 			v-model="lastname"
 			:placeholder="lastnameInputPlaceholder"
