@@ -3,6 +3,7 @@ import UsersService from '@/services/users.service';
 import { UserInfo } from '@/interfaces/api.interface';
 import { Store } from '@/interfaces/component.interface';
 import { AxiosResponse } from 'axios';
+import User from '@/models/user.model';
 
 const usersService = new UsersService();
 
@@ -33,7 +34,9 @@ export default createStore<Store>({
     },
   },
   actions: {
-    saveUser(state, userInfo: UserInfo): void {
+    saveUser(state, user): void {
+      const userInfo = new User(user.name, user.lastname);
+      
       usersService.addUser(userInfo).then(
         () => {
           state.commit('addUserToTable', userInfo);    

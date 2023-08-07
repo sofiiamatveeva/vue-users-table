@@ -26,7 +26,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import User from "@/models/user.model";
 import { mapActions } from "vuex";
 
 export default defineComponent({
@@ -57,7 +56,10 @@ export default defineComponent({
 	methods: {
 		...mapActions(["saveUser"]),
 		addUser(): void {
-			const userInfo = new User(this.name, this.lastname);
+			const userInfo = {
+				name: this.name,
+				lastname: this.lastname,
+			};
 
 			this.name = '';
 			this.lastname = '';
