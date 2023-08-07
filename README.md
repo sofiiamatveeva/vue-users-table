@@ -1,4 +1,5 @@
 # vue-users-table
+To launch the app it is necessary to server local json-server and vue-application. These are commands to start.
 
 ## Project setup
 ```
@@ -10,15 +11,7 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Run local server
 ```
-npm run build
+npm run api
 ```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
