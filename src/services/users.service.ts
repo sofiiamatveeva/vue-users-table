@@ -1,5 +1,6 @@
 import { UserInfo } from "@/interfaces/api.interface";
 import ApiService from "./api.service";
+import { AxiosResponse } from "axios";
 
 export default class UsersService {
 	private _apiService!: ApiService;
@@ -8,9 +9,21 @@ export default class UsersService {
 		this._apiService = new ApiService();
 	}
 
-	public async addUser(userInfo: UserInfo) {
+	public async addUser(userInfo: UserInfo): Promise<UserInfo> {
 		try {
-			return await this._apiService.addUser(userInfo);
+			const user = await this._apiService.addUser(userInfo);
+
+			return user.data;
+		} catch(error: any) {
+			throw new Error(error.message);
+		}
+	}
+
+	public async getAllUsers(): Promise<UserInfo[]> {
+		try {
+			const users = await this._apiService.getAllUsers();
+
+			return users.data;
 		} catch(error: any) {
 			throw new Error(error.message);
 		}

@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default defineComponent({
   props: {
@@ -41,6 +41,12 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['users']),
+  },
+  created(): void {
+    this.getUsers();
+  },
+  methods: {
+    ...mapActions(['getUsers']),
   },
 });
 </script>
