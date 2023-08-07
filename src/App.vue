@@ -1,27 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <AddUserForm
+    :formTitle="addUserFormTitle"
+    :nameInputPlaceholder="userNamePlaceholder"
+    :lastnameInputPlaceholder="userLastnamePlaceholder"
+    :buttonTitle="buttonTitle"
+  />
+  <UsersTable />
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from 'vue';
+import AddUserForm from '@/components/AddUserForm.vue';
+import UsersTable from '@/components/UsersTable.vue';
+import { 
+  ADD_USER_FORM_TITLE,
+  USER_NAME_INPUT_PLACEHOLDER,
+  USER_LASTNAME_INPUT_PLACEHOLDER,
+  ADD_USER_BUTTON,
+} from '@/constants/constants';
 
-@Options({
-  components: {
-    HelloWorld,
+export default defineComponent({
+  data() {
+    return {
+      addUserFormTitle: ADD_USER_FORM_TITLE,
+      userNamePlaceholder: USER_NAME_INPUT_PLACEHOLDER,
+      userLastnamePlaceholder: USER_LASTNAME_INPUT_PLACEHOLDER,
+      buttonTitle: ADD_USER_BUTTON,
+    };
   },
-})
-export default class App extends Vue {}
+  components: {
+    AddUserForm,
+    UsersTable,
+  },
+});
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
