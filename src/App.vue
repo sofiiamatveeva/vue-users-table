@@ -5,7 +5,12 @@
     :lastnameInputPlaceholder="userLastnamePlaceholder"
     :buttonTitle="buttonTitle"
   />
-  <UsersTable />
+  <UsersTable 
+    :nameCol="userNameCol"
+    :lastnameCol="userLastnameCol"
+    :editButtonTitle="editButtonTitle"
+    :removeButtonTitle="removeButtonTitle"
+  />
 </template>
 
 <script lang="ts">
@@ -17,6 +22,10 @@ import {
   USER_NAME_INPUT_PLACEHOLDER,
   USER_LASTNAME_INPUT_PLACEHOLDER,
   ADD_USER_BUTTON,
+	USER_NAME_FIELD,
+	USER_LASTNAME_FIELD,
+  EDIT_TABLE_ROW_BUTTON,
+  REMOVE_TABLE_ROW_BUTTON,
 } from '@/constants/constants';
 
 export default defineComponent({
@@ -26,6 +35,10 @@ export default defineComponent({
       userNamePlaceholder: USER_NAME_INPUT_PLACEHOLDER,
       userLastnamePlaceholder: USER_LASTNAME_INPUT_PLACEHOLDER,
       buttonTitle: ADD_USER_BUTTON,
+      userNameCol: USER_NAME_FIELD,
+      userLastnameCol: USER_LASTNAME_FIELD,
+      editButtonTitle: EDIT_TABLE_ROW_BUTTON,
+      removeButtonTitle: REMOVE_TABLE_ROW_BUTTON
     };
   },
   components: {
