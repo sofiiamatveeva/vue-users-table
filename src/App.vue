@@ -10,6 +10,8 @@
     :lastnameCol="userLastnameCol"
     :editButtonTitle="editButtonTitle"
     :removeButtonTitle="removeButtonTitle"
+    :saveButtonTitle="saveButtonTitle"
+    :cancelButtonTitle="cancelButtonTitle"
   />
 </template>
 
@@ -26,6 +28,8 @@ import {
 	USER_LASTNAME_FIELD,
   EDIT_TABLE_ROW_BUTTON,
   REMOVE_TABLE_ROW_BUTTON,
+  SAVE_USER_BUTTON,
+  CANCEL_BUTTON,
 } from '@/constants/constants';
 
 export default defineComponent({
@@ -38,7 +42,9 @@ export default defineComponent({
       userNameCol: USER_NAME_FIELD,
       userLastnameCol: USER_LASTNAME_FIELD,
       editButtonTitle: EDIT_TABLE_ROW_BUTTON,
-      removeButtonTitle: REMOVE_TABLE_ROW_BUTTON
+      removeButtonTitle: REMOVE_TABLE_ROW_BUTTON,
+      saveButtonTitle: SAVE_USER_BUTTON,
+      cancelButtonTitle: CANCEL_BUTTON,
     };
   },
   components: {

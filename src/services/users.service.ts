@@ -38,4 +38,14 @@ export default class UsersService {
 			throw new Error(error.message);
 		}
 	}
+
+	public async editUser(userInfo: UserInfo): Promise<UserInfo> {
+		try {
+			const user = await this._apiService.editUser(userInfo);
+
+			return user.data;
+		} catch(error: any) {
+			throw new Error(error.message);
+		}
+	}
 }

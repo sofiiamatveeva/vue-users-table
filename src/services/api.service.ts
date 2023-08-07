@@ -7,9 +7,8 @@ export default class ApiService {
 	
 	public async addUser(userInfo: UserInfo): Promise<AxiosResponse<UserInfo>> {
 		const url = this._baseUsersURL;
-		const body = JSON.stringify(userInfo);
 
-		return axios.post<UserInfo>(url, body);
+		return axios.post<UserInfo>(url, userInfo);
 	}
 
 	public async getAllUsers(): Promise<AxiosResponse<UserInfo[]>> {
@@ -22,5 +21,12 @@ export default class ApiService {
 		const url = `${this._baseUsersURL}/${userId}`;
 
 		return axios.delete(url);
+	}
+
+	public async editUser(userInfo: UserInfo): Promise<AxiosResponse<UserInfo>> {
+		const url = `${this._baseUsersURL}/${userInfo.id}`;
+		// const body = JSON.stringify(userInfo);
+
+		return axios.put(url, userInfo);
 	}
 }

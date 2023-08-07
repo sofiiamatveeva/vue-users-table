@@ -13,3 +13,5 @@ export const USER_LASTNAME_FIELD = 'Фамилия';
 export const ADD_USER_BUTTON = 'Добавить';
 export const EDIT_TABLE_ROW_BUTTON = 'Редактировать';
 export const REMOVE_TABLE_ROW_BUTTON = 'Удалить';
+export const SAVE_USER_BUTTON = 'Сохранить';
+export const CANCEL_BUTTON = 'Отменить';
