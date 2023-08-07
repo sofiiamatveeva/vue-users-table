@@ -17,6 +17,7 @@
 			class="border rounded p-2 bg-amber-200"
 			type="submit"
 			@click.prevent="addUser"
+			:disabled="!name.trim().length || !lastname.trim().length"
 		>
 			{{ buttonTitle }}
 		</button>
@@ -57,6 +58,9 @@ export default defineComponent({
 		...mapActions(["saveUser"]),
 		addUser(): void {
 			const userInfo = new User(this.name, this.lastname);
+
+			this.name = '';
+			this.lastname = '';
 
 			this.saveUser(userInfo);
 		},
